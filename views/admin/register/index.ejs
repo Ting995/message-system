@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        body {
+            background: url(image/1.png) no-repeat;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .bgcol {
+            margin-top: 100px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 bgcol">
+                <div class="title"">好谷学员后台管理系统</div>
+                <form action=" /api/doregister" class=" form-horizontal" method="post" enctype="multipart/form-data">
+                    <!--  enctype="application/x-www-form-urlencoded 提交文本数据（默认）-->
+                    <!-- multipart/form-data  提交文件数据-->
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">用户名</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="请输入用户名" name="username" value=""
+                                id="username" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">性别</label>
+                        <div class="col-sm-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" value="男"> 男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" value="女"> 女
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" value="保密" checked> 保密
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" placeholder="请输入密码" name="password" value=""
+                                id="pwd" pattern="^[a-zA-Z0-9_]{4,16}$" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">年龄</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="请输入年龄" name="age" value="" id="age"
+                                max="100" min="1" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">手机号</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="请输入手机号码" name="phone" value="" id="tel"
+                                pattern="^1[3|4|5|7|8]\d{9}$" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pic" class="col-sm-3 control-label">上传头像</label>
+                        <div class="col-sm-9">
+                            <input type="file" name="pic" id="pic" required>
+                        </div>
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" required>我已阅读并同意此协议
+                        </label>
+                    </div>
+                    <input class="btn btn-info btn-block" type="submit" value="立即注册">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/jQuery.js"></script>
+        <script src="js/bootstrap.js"></script>
+</body>
+
+</html>

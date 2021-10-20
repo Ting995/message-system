@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none !important;
+}
+table{
+    margin-top: 20px;
+}
+.panel-body{
+    cursor: pointer;
+}
+.show-stu,.add-stu{
+    display: none;
+}
+
+
+.xs{
+    display: block;
+}

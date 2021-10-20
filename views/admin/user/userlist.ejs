@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/userlist.css">
+</head>
+
+<body>
+    <%- include('../components/header.ejs')%>
+        <div class="container">
+            <div class="col-sm-2">
+                <%- include('../components/aside.ejs')%>
+            </div>
+            <div class="col-sm-10">
+                <ol class="breadcrumb">
+                    <li><a href="#">当前位置</a></li>
+                    <li><a href="#" class="local-2">学生信息</a></li>
+                    <li class=" active local-3">查看学生列表</li>
+                </ol>
+                <div class="show-stu xs">
+                    <form action="/api/usersearch" class="form-inline">
+                        <div class="form-group">
+                            <label for="">请输入搜索姓名</label>
+                            <input type="text" class="form-control" name="keywords">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-info">搜索</button>
+                        </div>
+                    </form>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">序号</th>
+                                <th class="text-center">头像</th>
+                                <th class="text-center">姓名</th>
+                                <th class="text-center">手机号</th>
+                                <th class="text-center">年龄</th>
+                                <th class="text-center">性别</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for(var i=0;i<userListDatas.length;i++){%>
+                                <tr class="text-center">
+                                    <td>
+                                        <%=(i+1)%>
+                                    </td>
+                                    <td>
+                                        <img src="<%=userListDatas[i].pic%>" width="30" alt="">
+                                    </td>
+                                    <td>
+                                        <%=userListDatas[i].username%>
+                                    </td>
+                                    <td>
+                                        <%=userListDatas[i].phone%>
+                                    </td>
+                                    <td>
+                                        <%=userListDatas[i].age%>
+                                    </td>
+                                    <td>
+                                        <%=userListDatas[i].sex%>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;" data-target="#mydelete" data-toggle="modal"
+                                            class="delete-btn" data-id="<%=userListDatas[i]._id%>">删除</a>
+                                        <a href="/api/useredit?id=<%=userListDatas[i]._id%>" class="update">修改</a>
+                                    </td>
+                                </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+
+                    <nav aria-label="Page navigation" class="text-center">
+                        <ul class="pagination">
+                            <li><a href="#">总共有<%=total%>条数据</a></li>
+                            <li class="<%=page==1?'disabled':''%>"><a href="/api/userlist?page=1">首页</a></li>
+                            <li class="<%=page==1?'disabled':''%>"><a href="/api/userlist?page=<%=page-1%>">上一页</a></li>
+                            <%for(var i=1;i<=totalPages;i++){%>
+                                <li class="<%=page==i?'active':''%>"><a href="/api/userlist?page=<%=i%>">
+                                        <%=i%>
+                                    </a></li>
+                                <%}%>
+                                    <li class="<%=page==totalPages?'disabled':''%>"><a
+                                            href="/api/userlist?page=<%=page==totalPages?totalPages:page+1%>">下一页</a>
+                                    </li>
+                                    <li class="<%=page==totalPages?'disabled':''%>"><a
+                                            href="/api/userlist?page=<%=totalPages%>">尾页</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- 点击删除弹出框 -->
+                <div class="modal fade" id="mydelete">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="/api/deleuser">
+                                <div class="modal-header">
+                                    温馨提示
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" id="deleId" value="111" name="id">
+                                    您确定要删除此数据吗？
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn">删除</button>
+                                    <button class="btn" data-dismiss="modal">取消</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-stu">
+                    添加学生
+                </div>
+            </div>
+        </div>
+        <script src="js/jQuery.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/userlist.js"></script>
+</body>
+
+</html>

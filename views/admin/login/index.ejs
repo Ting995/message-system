@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        body {
+            background: url(image/1.png) no-repeat;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .bgcol {
+            margin-top: 100px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 bgcol">
+                <div class="title"">好谷学员后台管理系统</div>
+                <form action=" /api/dologin" method="post" class=" form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">用户名</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputEmail3" name="username"
+                                placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="inputPassword3" name="password"
+                                placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" required>我已阅读并同意此协议
+                        </label>
+                    </div>
+                    <input class="btn btn-info btn-block" type="submit" value="立即登录">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

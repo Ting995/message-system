@@ -1,0 +1,36 @@
+<div class="panel-group list" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    学生信息
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in clas
+    stu-info" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body  show-student">
+                <a href="/api/userlist">查看学生列表</a>
+            </div>
+            <div class="panel-body add-student">
+                <a href="/api/useradd">添加学生</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    产品信息
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                产品列表
+            </div>
+        </div>
+    </div>
+</div>
